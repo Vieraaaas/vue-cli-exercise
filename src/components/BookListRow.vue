@@ -2,7 +2,7 @@
   <tr class="table-item__table-row">
     <td>{{ title }}</td>
     <td>{{ isbn }}</td>
-    <td></td>
+    <td><BaseButton text="Add Bookmark" variant="secondary" /></td>
   </tr>
 </template>
 
@@ -13,11 +13,15 @@
 </style>
 
 <script>
+import BaseButton from "@/components/BaseButton.vue";
 export default {
   name: "BookListRow",
   props: {
     title: String,
-    isbn: Number,
+    isbn: String,
+  },
+  components: {
+    BaseButton,
   },
 };
 </script>
