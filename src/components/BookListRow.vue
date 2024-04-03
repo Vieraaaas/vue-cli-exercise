@@ -2,7 +2,13 @@
   <tr class="table-item__table-row">
     <td>{{ title }}</td>
     <td>{{ isbn }}</td>
-    <td><BaseButton text="Add Bookmark" variant="secondary" /></td>
+    <td>
+      <BaseButton
+        @ButtonClicked="toggleBookmarked"
+        :text="bookMarkedText"
+        variant="secondary"
+      />
+    </td>
   </tr>
 </template>
 
@@ -19,9 +25,23 @@ export default {
   props: {
     title: String,
     isbn: String,
+    isBookmarked: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     BaseButton,
+  },
+  computed: {
+    bookMarkedText() {
+      return this.isBookmarked ? "Remove Bookmark" : "Add Bookmark";
+    },
+  },
+  methods: {
+    toggleBookmarked() {
+      this.$emit("bookmark-clicked", this.isbn);
+    },
   },
 };
 </script>

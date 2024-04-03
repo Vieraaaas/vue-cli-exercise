@@ -1,5 +1,5 @@
 <template>
-  <button :class="style">{{ text }}</button>
+  <button @click="ButtonClicked" :class="style">{{ text }}</button>
 </template>
 
 <script>
@@ -21,6 +21,11 @@ export default {
   computed: {
     style() {
       return ["btn", `btn--${this.variant}`];
+    },
+  },
+  methods: {
+    ButtonClicked() {
+      this.$emit("ButtonClicked");
     },
   },
 };
