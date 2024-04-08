@@ -1,6 +1,8 @@
 <template>
   <tr class="table-item__table-row">
-    <td>{{ title }}</td>
+    <td>
+      {{ title }} <router-link :to="{ name: 'details' }">Details</router-link>
+    </td>
     <td>{{ isbn }}</td>
     <td>
       <BaseButton
