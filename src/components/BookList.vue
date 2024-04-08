@@ -24,7 +24,7 @@
   </section>
 </template>
 
-<style>
+<style scoped>
 .table-item__table {
   border-collapse: collapse;
   margin: 25px 0;
